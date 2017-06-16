@@ -10,7 +10,7 @@ Run [6blog](https://github.com/szabgab/6blog) in docker container.
 
     $ docker build  -t 6blog .
 
-    $ docker run -d -p 3001:3001 6blog
+    $ docker run -d -p 3001:3000 6blog
 
     $ curl 127.0.0.1:3000 # so on, follow 6blog documentation for the blog6 API
 
