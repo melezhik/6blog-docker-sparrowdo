@@ -12,7 +12,7 @@ Run [6blog](https://github.com/szabgab/6blog) in docker container.
 
     $ docker run -d -p 3001:3001 6blog
 
-    $ firefox 127.0.0.1:3001
+    $ curl 127.0.0.1:3000 # so on, follow 6blog documentation for the blog6 API
 
 
 # Author

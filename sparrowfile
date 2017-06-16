@@ -1,5 +1,7 @@
 my $user = 'root';
 
+package-install 'sqlite-libs';
+
 bash 'zef install Path::Iterator';
 
 user $user;
@@ -21,7 +23,8 @@ bash q:to/HERE/, %(user => $user );
   fi
 HERE
 
-package-install 'sqlite-libs';
 
 bash 'cd ~/work/6blog && zef test . && zef install . --force';
+
+bash 'cd ~/work/6blog && perl6 bin/setup.pl', %( description => 'setup 6blog');
 

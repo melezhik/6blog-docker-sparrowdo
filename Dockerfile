@@ -8,4 +8,4 @@ COPY sparrowfile    /tmp/
 RUN sparrowdo --local_mode --sparrowfile=/tmp/sparrowfile --no_sudo
 COPY entrypoint.sh  /tmp
 ENTRYPOINT ["/tmp/entrypoint.sh"]
-EXPOSE 3001
+EXPOSE 3000
