@@ -2,7 +2,8 @@ my $user = 'root';
 
 package-install 'sqlite-libs';
 
-bash 'zef install Path::Iterator';
+bash 'zef install Path::Iterator JSON::Fast';
+bash 'zef install https://github.com/Bailador/Bailador.git';
 
 user $user;
 
@@ -23,6 +24,8 @@ bash q:to/HERE/, %(user => $user );
   fi
 HERE
 
+
+bash 'cd ~/work/6blog && zef install . --depsonly ', %( description => 'install 6blog dependencies');
 
 bash 'cd ~/work/6blog && zef test . && zef install . --force';
 
