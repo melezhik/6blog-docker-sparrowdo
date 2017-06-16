@@ -1,0 +1,27 @@
+my $user = 'root';
+
+bash 'zef install Path::Iterator';
+
+user $user;
+
+directory-create '/root/work', %(
+  recursive => 1 ,
+  owner => $user,
+);
+
+bash q:to/HERE/, %(user => $user );
+  set -e
+  cd ~/work
+  if test -d  ./6blog; then
+    cd 6blog
+    git pull
+    cd ../
+  else
+    git clone https://github.com/szabgab/6blog.git
+  fi
+HERE
+
+package-install 'sqlite-libs';
+
+bash 'cd ~/work/6blog && zef test . && zef install . --force';
+
